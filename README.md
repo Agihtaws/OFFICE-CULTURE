@@ -1,6 +1,6 @@
 # OFFICE-CULTURE
 
-![Project Screenshot](screenshot.png)
+![Project Screenshot](public/Screenshot%202025-07-26%20171337.png)
 
 ## 🏢 Interactive Office Environment with React & CSS Art
 
