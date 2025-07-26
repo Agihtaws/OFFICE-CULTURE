@@ -838,628 +838,628 @@ const OfficeScene = () => {
         color: timeOfDay === 'night' ? '#fff' : '#333',
         textAlign: 'center',
         zIndex: 100,
-        background: 'rgba(255, 255, 255, 0.2)',
-        padding: '5px 10px',
-        borderRadius: '5px'
-      }}>
-        {time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-      </div>
+            background: 'rgba(255, 255, 255, 0.2)',
+    padding: '5px 10px',
+    borderRadius: '5px'
+  }}>
+    {time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+  </div>
 
-      {/* Wall Clock - SVG APPROACH */}
-      <div className="wall-clock">
-        <svg width="200" height="200" viewBox="0 0 200 200">
-          {/* Clock face */}
-          <circle cx="100" cy="100" r="90" fill="white" stroke="#e0e0e0" strokeWidth="2" />
-          
-          {/* Clock numbers */}
-          {[...Array(12)].map((_, i) => {
-            const number = i === 0 ? 12 : i;
-            const angle = i * 30 * Math.PI / 180;
-            const x = 100 + 75 * Math.sin(angle);
-            const y = 100 - 75 * Math.cos(angle);
-            return (
-              <text 
-                key={i} 
-                x={x} 
-                y={y} 
-                fontSize="16" 
-                textAnchor="middle" 
-                dominantBaseline="middle"
-                fontWeight="bold"
-              >
-                {number}
-              </text>
-            );
-          })}
-          
-          {/* Hour hand */}
-          <line 
-            x1="100" 
-            y1="100" 
-            x2={100 + 50 * Math.sin(hourAngle * Math.PI / 180)} 
-            y2={100 - 50 * Math.cos(hourAngle * Math.PI / 180)} 
-            stroke="#333" 
-            strokeWidth="6" 
-            strokeLinecap="round" 
-          />
-          
-          {/* Minute hand */}
-          <line 
-            x1="100" 
-            y1="100" 
-            x2={100 + 70 * Math.sin(minuteAngle * Math.PI / 180)} 
-            y2={100 - 70 * Math.cos(minuteAngle * Math.PI / 180)} 
-            stroke="#555" 
-            strokeWidth="4" 
-            strokeLinecap="round" 
-          />
-          
-          {/* Second hand */}
-          <line 
-            x1="100" 
-            y1="100" 
-            x2={100 + 80 * Math.sin(secondAngle * Math.PI / 180)} 
-            y2={100 - 80 * Math.cos(secondAngle * Math.PI / 180)} 
-            stroke="#f44336" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-          />
-          
-          {/* Center dot */}
-          <circle cx="100" cy="100" r="5" fill="#333" />
-        </svg>
-      </div>
+  {/* Wall Clock - SVG APPROACH */}
+  <div className="wall-clock">
+    <svg width="200" height="200" viewBox="0 0 200 200">
+      {/* Clock face */}
+      <circle cx="100" cy="100" r="90" fill="white" stroke="#e0e0e0" strokeWidth="2" />
       
-      {/* Water Cooler */}
-      <div className="water-cooler" onClick={toggleWaterCooler}>
-        <div className="water-cooler-body">
-          <div className="water-container">
-            <div className="water-level">
-              {waterBubbles.map(bubble => (
-                <div
-                  key={bubble.id}
-                  className="water-bubble"
-                  style={{
-                    width: `${bubble.size}px`,
-                    height: `${bubble.size}px`,
-                    left: `${bubble.left}%`,
-                    animationDelay: `${bubble.delay}s`,
-                    animationDuration: `${bubble.duration}s`
-                  }}
-                ></div>
-              ))}
-            </div>
-          </div>
-          <div className="water-spout"></div>
-          <div className="water-button-blue"></div>
-          <div className="water-button-red"></div>
-        </div>
-        <div className="water-stand"></div>
-        
-        <div className={`water-cooler-chat ${showWaterCooler ? 'active' : ''}`}>
-          <div>{waterCoolerChat}</div>
-          <div className="water-cooler-buttons">
-            <button 
-              className="water-cooler-btn"
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowWaterCooler(false);
+      {/* Clock numbers */}
+      {[...Array(12)].map((_, i) => {
+        const number = i === 0 ? 12 : i;
+        const angle = i * 30 * Math.PI / 180;
+        const x = 100 + 75 * Math.sin(angle);
+        const y = 100 - 75 * Math.cos(angle);
+        return (
+          <text 
+            key={i} 
+            x={x} 
+            y={y} 
+            fontSize="16" 
+            textAnchor="middle" 
+            dominantBaseline="middle"
+            fontWeight="bold"
+          >
+            {number}
+          </text>
+        );
+      })}
+      
+      {/* Hour hand */}
+      <line 
+        x1="100" 
+        y1="100" 
+        x2={100 + 50 * Math.sin(hourAngle * Math.PI / 180)} 
+        y2={100 - 50 * Math.cos(hourAngle * Math.PI / 180)} 
+        stroke="#333" 
+        strokeWidth="6" 
+        strokeLinecap="round" 
+      />
+      
+      {/* Minute hand */}
+      <line 
+        x1="100" 
+        y1="100" 
+        x2={100 + 70 * Math.sin(minuteAngle * Math.PI / 180)} 
+        y2={100 - 70 * Math.cos(minuteAngle * Math.PI / 180)} 
+        stroke="#555" 
+        strokeWidth="4" 
+        strokeLinecap="round" 
+      />
+      
+      {/* Second hand */}
+      <line 
+        x1="100" 
+        y1="100" 
+        x2={100 + 80 * Math.sin(secondAngle * Math.PI / 180)} 
+        y2={100 - 80 * Math.cos(secondAngle * Math.PI / 180)} 
+        stroke="#f44336" 
+        strokeWidth="2" 
+        strokeLinecap="round" 
+      />
+      
+      {/* Center dot */}
+      <circle cx="100" cy="100" r="5" fill="#333" />
+    </svg>
+  </div>
+  
+  {/* Water Cooler */}
+  <div className="water-cooler" onClick={toggleWaterCooler}>
+    <div className="water-cooler-body">
+      <div className="water-container">
+        <div className="water-level">
+          {waterBubbles.map(bubble => (
+            <div
+              key={bubble.id}
+              className="water-bubble"
+              style={{
+                width: `${bubble.size}px`,
+                height: `${bubble.size}px`,
+                left: `${bubble.left}%`,
+                animationDelay: `${bubble.delay}s`,
+                animationDuration: `${bubble.duration}s`
               }}
-            >
-              Walk Away
-            </button>
-            <button 
-              className="water-cooler-btn primary"
-              onClick={(e) => {
-                e.stopPropagation();
-                generateWaterCoolerChat();
-                generateBubbles();
-              }}
-            >
-              New Topic
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* To-Do List Button */}
-      <button className="todo-button" onClick={toggleTodoList}>
-        📋 To-Do List
-      </button>
-
-      {/* To-Do List */}
-      <div className={`todo-list ${showTodoList ? 'active' : ''}`}>
-        <div className="todo-header">
-          <div className="todo-title">Today's Tasks</div>
-          <div className="todo-close" onClick={toggleTodoList}>×</div>
-        </div>
-        
-        <form className="todo-form" onSubmit={addTodoItem}>
-          <input
-            type="text"
-            className="todo-input"
-            placeholder="Add a new task..."
-            value={newTodoText}
-            onChange={(e) => setNewTodoText(e.target.value)}
-          />
-          <button type="submit" className="todo-add">+</button>
-        </form>
-        
-        <div className="todo-items">
-          {todoItems.map(item => (
-            <div key={item.id} className="todo-item">
-              <div 
-                className={`todo-checkbox ${item.completed ? 'checked' : ''}`}
-                onClick={() => toggleTodoCompletion(item.id)}
-              >
-                {item.completed && '✓'}
-              </div>
-              <div className={`todo-text ${item.completed ? 'completed' : ''}`}>
-                {item.text}
-              </div>
-              <div 
-                className="todo-delete"
-                onClick={() => deleteTodoItem(item.id)}
-              >
-                ×
-              </div>
-            </div>
+            ></div>
           ))}
         </div>
       </div>
-
-      {/* Sticky Notes Board */}
-      <div className="sticky-board">
-        <div className="board-header">Tasks & Reminders</div>
-        {notes.map(note => (
-          <div 
-            key={note.id}
-            className={`sticky-note ${activeNote === note.id ? 'active' : ''}`}
-            style={{ 
-              backgroundColor: note.color,
-              transform: `rotate(${note.rotation}deg)`
-            }}
-            onClick={() => handleNoteClick(note.id)}
-          >
-            {note.text}
-          </div>
-        ))}
-      </div>
-      
-      {/* Paper Airplane Messages */}
-      <div className="paper-airplane-button" onClick={toggleMessageBox}>
-        Send message
-      </div>
-      
-      {showMessageBox && (
-        <div className="message-box">
-          <input
-            type="text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder="Type a message..."
-            className="message-input"
-          />
-          <button className="send-button" onClick={handleSendMessage}>Send ✈️</button>
-        </div>
-      )}
-      
-      {paperAirplanes.map(plane => (
-        <div 
-          key={plane.id} 
-          className={`paper-airplane path-${plane.path}`}
-          style={{
-            left: `${plane.startX}px`,
-            top: `${plane.startY}px`
+      <div className="water-spout"></div>
+      <div className="water-button-blue"></div>
+      <div className="water-button-red"></div>
+    </div>
+    <div className="water-stand"></div>
+    
+    <div className={`water-cooler-chat ${showWaterCooler ? 'active' : ''}`}>
+      <div>{waterCoolerChat}</div>
+      <div className="water-cooler-buttons">
+        <button 
+          className="water-cooler-btn"
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowWaterCooler(false);
           }}
         >
-          <div className="airplane-body">
-            <div className="message-tooltip">{plane.message}</div>
-          </div>
-        </div>
-      ))}
-
-      <div className="desk">
-        <div className="desk-surface"></div>
-        <div className="desk-leg left"></div>
-        <div className="desk-leg right"></div>
-        
-        {/* Office Pet - Positioned under the desk */}
-        {showPet && (
-          <div 
-            className={`office-pet pet-${petType} pet-${petAction} ${petPosition.x > 500 ? 'from-right' : ''}`}
-            style={{
-              left: petPosition.x,
-              bottom: petPosition.y,
-              zIndex: 15 // Ensure it appears under the desk surface but above the legs
-            }}
-          >
-            <div className="pet-body">
-              {petType === 'cat' ? '🐱' : '🐶'}
-            </div>
-            <div className="pet-thought">
-              {petAction === 'look' && '❓'}
-              {petAction === 'play' && '🎾'}
-              {petAction === 'sleep' && '💤'}
-            </div>
-          </div>
-        )}
-        
-        {/* Coffee mug - updated to only steam on hover */}
-        <div className="coffee-mug" onClick={handleCoffeeMugClick}>
-          <div className="mug-body"></div>
-          <div className="mug-handle"></div>
-          <div className="mug-steam steam-1"></div>
-          <div className="mug-steam steam-2"></div>
-          <div className="mug-steam steam-3"></div>
-          <div className="mug-steam steam-4"></div>
-          <div className="mug-steam steam-5"></div>
-        </div>
-        
-        {/* Computer Monitor */}
-        <div className="computer" onClick={toggleScreen}>
-          <div className="monitor">
-            <div className={`screen ${isScreenOn ? 'screen-on' : 'screen-off'}`}>
-              {isScreenOn && (
-                <div className="screen-content">
-                  {showMeeting ? (
-                    <div className="screen-meeting">
-                      <div className="meeting-header">
-                        <div className="meeting-title">Team Standup</div>
-                        <div className="meeting-close" onClick={() => setShowMeeting(false)}>×</div>
-                      </div>
-                      <div className="meeting-grid">
-                        {meetingParticipants.map(participant => (
-                          <div 
-                            key={participant.id} 
-                            className={`participant ${participant.status}`}
-                          >
-                            <div className="participant-avatar">{participant.avatar}</div>
-                            <div className="participant-name">{participant.name}</div>
-                            {participant.status === 'muted' && <div className="status-icon">🔇</div>}
-                            {participant.status === 'camera-off' && <div className="status-icon">🎭</div>}
-                            {participant.status === 'speaking' && (
-                              <div className="speaking-indicator">
-                                <div className="speaking-bar"></div>
-                                <div className="speaking-bar"></div>
-                                <div className="speaking-bar"></div>
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                      <div className="meeting-controls-small">
-                        <div className="control-btn-small mic">🎤</div>
-                        <div className="control-btn-small video">📹</div>
-                        <div className="control-btn-small end-call" onClick={() => setShowMeeting(false)}>📴</div>
-                      </div>
-                    </div>
-                  ) : showCall ? (
-                    <div className="screen-call">
-                      <div className="call-header">
-                        <div className="call-title">Calling John...</div>
-                        <div className="call-close" onClick={() => setShowCall(false)}>×</div>
-                      </div>
-                      <div className="call-content">
-                        <div className="caller-avatar">👨‍💼</div>
-                        <div className="caller-name">John</div>
-                        <div className="call-status">Ringing...</div>
-                      </div>
-                      <div className="call-controls">
-                        <div className="control-btn mic">🎤</div>
-                        <div className="control-btn video">📹</div>
-                        <div className="control-btn end-call" onClick={() => setShowCall(false)}>📴</div>
-                      </div>
-                    </div>
-                  ) : showCssChallenge ? (
-                    <div className="screen-challenge">
-                      <div className="challenge-header">
-                        <div className="challenge-logo">DEV</div>
-                        <div className="challenge-title">Frontend Challenge: Office Edition</div>
-                        <div className="challenge-close" onClick={() => setShowCssChallenge(false)}>×</div>
-                      </div>
-                      <div className="challenge-content">
-                        <div className="challenge-banner">
-                          <div className="challenge-banner-bg">
-                            <div className="plants">
-                              <div className="plant plant-1"></div>
-                              <div className="plant plant-2"></div>
-                              <div className="plant plant-3"></div>
-                              <div className="arrow arrow-1"></div>
-                              <div className="arrow arrow-2"></div>
-                              <div className="arrow arrow-3"></div>
-                            </div>
-                            <div className="challenge-info">
-                              <div className="challenge-box">
-                                <h2 className="challenge-heading">Frontend Challenge: Office Edition</h2>
-                                <div className="challenge-prize">$3,000 IN PRIZES!</div>
-                                <div className="challenge-date">JULY 2 - 27</div>
-                                <div className="challenge-sponsor">
-                                  <div className="sponsor-logo">axero</div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div className="challenge-section">
-                          <h2>Challenge ends soon!</h2>
-                          <div className="countdown">
-                            <div className="countdown-item">
-                              <div className="countdown-number">01</div>
-                              <div className="countdown-label">DAYS</div>
-                            </div>
-                            <div className="countdown-separator">:</div>
-                            <div className="countdown-item">
-                              <div className="countdown-number">22</div>
-                              <div className="countdown-label">HOURS</div>
-                            </div>
-                            <div className="countdown-separator">:</div>
-                            <div className="countdown-item">
-                              <div className="countdown-number">16</div>
-                              <div className="countdown-label">MINUTES</div>
-                            </div>
-                            <div className="countdown-separator">:</div>
-                            <div className="countdown-item">
-                              <div className="countdown-number">20</div>
-                              <div className="countdown-label">SECONDS</div>
-                            </div>
-                          </div>
-                          <div className="challenge-cta">
-                            <button className="challenge-button">See prompts</button>
-                          </div>
-                        </div>
-                        
-                        <div className="challenge-section main-content">
-                          <h1>Frontend Challenge: Office Edition</h1>
-                          <div className="action-buttons">
-                            <button className="sign-up-button">Sign up</button>
-                            <a className="view-entries">View Entries →</a>
-                          </div>
-                          <p className="challenge-tagline">Flex your HTML, CSS, and JavaScript skills!</p>
-                          
-                          <div className="challenge-card">
-                            <h3>CSS Art: Office Culture</h3>
-                            <p>Draw what comes to mind for you when it comes to office culture. Whether that's classic water cooler conversations, your coworker's mechanical keyboard, ice breaker activities, or The Office™ - we want to see your interpretation of office life through CSS art.</p>
-                            <a className="template-link">Submission Template →</a>
-                            
-                            <div className="judging-criteria">
-                              <h4>Judging Criteria:</h4>
-                              <ul>
-                                <li>• Creativity</li>
-                                <li>• Effective Use of CSS</li>
-                                <li>• Aesthetic Outcome</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                    <>
-                      <div className="screen-image"></div>
-                      <div className="taskbar"></div>
-                    </>
-                  )}
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="monitor-stand"></div>
-          <div className="monitor-base"></div>
-          <div className="keyboard">
-            <div className="keyboard-keys"></div>
-          </div>
-          <div className="mouse"></div>
-        </div>
-        
-        {/* Desk Plant */}
-        <div className="plant-container" onClick={waterPlant}>
-          <div className="plant-pot">
-            <div className="plant-soil"></div>
-          </div>
-          <div className={`plant growth-${plantGrowth}`}>
-            {plantGrowth > 0 && (
-              <>
-                <div className="plant-stem"></div>
-                <div className="plant-leaf left"></div>
-                <div className="plant-leaf right"></div>
-              </>
-            )}
-            {plantGrowth > 1 && (
-              <>
-                <div className="plant-stem-2"></div>
-                <div className="plant-leaf left-2"></div>
-                <div className="plant-leaf right-2"></div>
-              </>
-            )}
-            {plantGrowth > 2 && (
-              <div className="plant-flower"></div>
-            )}
-          </div>
-          {plantGrowth < 3 && (
-            <div className="water-me-sign">Water me!</div>
-          )}
-        </div>
-      </div>
-      
-      {/* Coffee Break Overlay */}
-      <div className={`coffee-break-overlay ${coffeeBreak ? 'coffee-break-active' : ''}`}>
-        <div className="coffee-break-title">Taking a Coffee Break</div>
-        <div className="coffee-break-timer">
-          {Math.floor(breakTimeLeft / 60)}:{(breakTimeLeft % 60).toString().padStart(2, '0')}
-        </div>
-        <div className="coffee-cup-large">
-          <div className="coffee-cup-body">
-            <div 
-              className="coffee-liquid" 
-              style={{ height: `${coffeeLevel}%` }}
-            ></div>
-          </div>
-          <div className="coffee-cup-handle"></div>
-          <div className="coffee-cup-steam coffee-steam-1"></div>
-          <div className="coffee-cup-steam coffee-steam-2"></div>
-          <div className="coffee-cup-steam coffee-steam-3"></div>
-        </div>
-        <button className="end-break-button" onClick={endCoffeeBreak}>
-          End Break Early
+          Walk Away
+        </button>
+        <button 
+          className="water-cooler-btn primary"
+          onClick={(e) => {
+            e.stopPropagation();
+            generateWaterCoolerChat();
+            generateBubbles();
+          }}
+        >
+          New Topic
         </button>
       </div>
+    </div>
+  </div>
 
-      {/* Notifications */}
-      <div className="notifications-container">
-        {notifications.map(notification => (
+  {/* To-Do List Button */}
+  <button className="todo-button" onClick={toggleTodoList}>
+    📋 To-Do List
+  </button>
+
+  {/* To-Do List */}
+  <div className={`todo-list ${showTodoList ? 'active' : ''}`}>
+    <div className="todo-header">
+      <div className="todo-title">Today's Tasks</div>
+      <div className="todo-close" onClick={toggleTodoList}>×</div>
+    </div>
+    
+    <form className="todo-form" onSubmit={addTodoItem}>
+      <input
+        type="text"
+        className="todo-input"
+        placeholder="Add a new task..."
+        value={newTodoText}
+        onChange={(e) => setNewTodoText(e.target.value)}
+      />
+      <button type="submit" className="todo-add">+</button>
+    </form>
+    
+    <div className="todo-items">
+      {todoItems.map(item => (
+        <div key={item.id} className="todo-item">
           <div 
-            key={notification.id} 
-            className={`notification ${notification.type}`}
-            onClick={() => removeNotification(notification.id)}
+            className={`todo-checkbox ${item.completed ? 'checked' : ''}`}
+            onClick={() => toggleTodoCompletion(item.id)}
           >
-            <div className="notification-icon">
-              {notification.type === 'email' && '✉️'}
-              {notification.type === 'calendar' && '📅'}
-              {notification.type === 'reminder' && '⏰'}
-              {notification.type === 'comment' && '💬'}
-              {notification.type === 'system' && '🔄'}
-              {notification.type === 'deadline' && '⚠️'}
-            </div>
-            <div className="notification-content">
-              <div className="notification-title">
-                {notification.type === 'email' && 'New Email'}
-                {notification.type === 'calendar' && 'Calendar'}
-                {notification.type === 'reminder' && 'Reminder'}
-                {notification.type === 'comment' && 'Comment'}
-                {notification.type === 'system' && 'System'}
-                {notification.type === 'deadline' && 'Deadline Alert'}
-              </div>
-              <div className="notification-message">{notification.message}</div>
-            </div>
-            <div className="notification-close">×</div>
+            {item.completed && '✓'}
           </div>
-        ))}
-      </div>
-
-      {/* Test notification button - remove in production */}
-      <button 
-        style={{ 
-          position: 'absolute', 
-          bottom: '10px', 
-          right: '10px', 
-          zIndex: 1000,
-          padding: '5px 10px',
-          background: '#3498db',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer'
-        }}
-        onClick={() => addNotification("This is a test notification", "email")}
-      >
-        Test Notification
-      </button>
-
-      {/* Customize button */}
-      <button className="customize-button" onClick={toggleCustomizePanel}>
-        🎨 Customize Desk
-      </button>
-
-      {/* Customize panel - Updated to include dustbin */}
-      <div 
-        className={`customize-panel ${showCustomizePanel ? 'active' : ''}`}
-        ref={customizePanelRef}
-      >
-        <div className="panel-close" onClick={toggleCustomizePanel}>×</div>
-        <div className="customize-section">
-          <div className="customize-section-title">Add Items</div>
-          <div className="item-options">
-            <div className="item-option" onClick={() => addPersonalItem('photo')}>
-              🖼️
-            </div>
-            <div className="item-option" onClick={() => addPersonalItem('phone')}>
-              📱
-            </div>
-            <div className="item-option" onClick={() => addPersonalItem('water')}>
-              🍶
-            </div>
-            <div className="item-option" onClick={() => addPersonalItem('dustbin')}>
-              🗑️
-            </div>
+          <div className={`todo-text ${item.completed ? 'completed' : ''}`}>
+            {item.text}
           </div>
-        </div>
-      </div>
-
-      {/* Weather Widget */}
-      <div className="weather-widget">
-        <div className="weather-header">
-          <div className="weather-location">{weather.location}</div>
-          <div className="weather-refresh" onClick={changeWeather}>↻</div>
-        </div>
-        <div className="weather-content">
-          <div className="weather-info">
-            <div className="weather-temperature">{weather.temperature}°F</div>
-            <div className="weather-condition">
-              {weather.condition.charAt(0).toUpperCase() + weather.condition.slice(1)}
-            </div>
+          <div 
+            className="todo-delete"
+            onClick={() => deleteTodoItem(item.id)}
+          >
+            ×
           </div>
-          <div className="weather-icon">
-            {weather.condition === 'sunny' && '☀️'}
-            {weather.condition === 'cloudy' && '☁️'}
-            {weather.condition === 'rainy' && '🌧️'}
-            {weather.condition === 'snowy' && '❄️'}
-          </div>
-        </div>
-      </div>
-
-      {/* Personal items on desk - Updated to include dustbin rendering */}
-      {personalItems.map(item => (
-        <div
-          key={item.id}
-          className="personal-item"
-          style={{
-            left: item.position.x,
-            top: item.position.y,
-            transform: `rotate(${item.rotation}deg)`,
-            zIndex: item.zIndex
-          }}
-          onMouseDown={(e) => {
-            e.stopPropagation();
-            startDragging(item.id);
-          }}
-        >
-          <div className="item-delete" onClick={() => removePersonalItem(item.id)}>×</div>
-          
-          {item.type === 'photo' && (
-            <div className="photo-frame">
-              <div className="photo-inner"></div>
-              <div className="photo-stand"></div>
-            </div>
-          )}
-          
-          {item.type === 'phone' && (
-            <div className="desk-phone">
-              <div className="phone-screen"></div>
-              <div className="phone-button"></div>
-            </div>
-          )}
-          
-          {item.type === 'water' && (
-            <div className="water-bottle">
-              <div className="bottle-cap"></div>
-              <div className="bottle-body"></div>
-              <div className="bottle-water"></div>
-            </div>
-          )}
-          
-          {item.type === 'dustbin' && (
-            <div className="desk-dustbin">
-              <div className="dustbin-body"></div>
-              <div className="dustbin-lid"></div>
-              <div className="dustbin-contents"></div>
-            </div>
-          )}
         </div>
       ))}
     </div>
-  );
+  </div>
+
+  {/* Sticky Notes Board */}
+  <div className="sticky-board">
+    <div className="board-header">Tasks & Reminders</div>
+    {notes.map(note => (
+      <div 
+        key={note.id}
+        className={`sticky-note ${activeNote === note.id ? 'active' : ''}`}
+        style={{ 
+          backgroundColor: note.color,
+          transform: `rotate(${note.rotation}deg)`
+        }}
+        onClick={() => handleNoteClick(note.id)}
+      >
+        {note.text}
+      </div>
+    ))}
+  </div>
+  
+  {/* Paper Airplane Messages */}
+  <div className="paper-airplane-button" onClick={toggleMessageBox}>
+    Send message
+  </div>
+  
+  {showMessageBox && (
+    <div className="message-box">
+      <input
+        type="text"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        placeholder="Type a message..."
+        className="message-input"
+      />
+      <button className="send-button" onClick={handleSendMessage}>Send ✈️</button>
+    </div>
+  )}
+  
+  {paperAirplanes.map(plane => (
+    <div 
+      key={plane.id} 
+      className={`paper-airplane path-${plane.path}`}
+      style={{
+        left: `${plane.startX}px`,
+        top: `${plane.startY}px`
+      }}
+    >
+      <div className="airplane-body">
+        <div className="message-tooltip">{plane.message}</div>
+      </div>
+    </div>
+  ))}
+
+  <div className="desk">
+    <div className="desk-surface"></div>
+    <div className="desk-leg left"></div>
+    <div className="desk-leg right"></div>
+    
+    {/* Office Pet - Positioned under the desk */}
+    {showPet && (
+      <div 
+        className={`office-pet pet-${petType} pet-${petAction} ${petPosition.x > 500 ? 'from-right' : ''}`}
+        style={{
+          left: petPosition.x,
+          bottom: petPosition.y,
+          zIndex: 15 // Ensure it appears under the desk surface but above the legs
+        }}
+      >
+        <div className="pet-body">
+          {petType === 'cat' ? '🐱' : '🐶'}
+        </div>
+        <div className="pet-thought">
+          {petAction === 'look' && '❓'}
+          {petAction === 'play' && '🎾'}
+          {petAction === 'sleep' && '💤'}
+        </div>
+      </div>
+    )}
+    
+    {/* Coffee mug - updated to only steam on hover */}
+    <div className="coffee-mug" onClick={handleCoffeeMugClick}>
+      <div className="mug-body"></div>
+      <div className="mug-handle"></div>
+      <div className="mug-steam steam-1"></div>
+      <div className="mug-steam steam-2"></div>
+      <div className="mug-steam steam-3"></div>
+      <div className="mug-steam steam-4"></div>
+      <div className="mug-steam steam-5"></div>
+    </div>
+    
+    {/* Computer Monitor */}
+    <div className="computer" onClick={toggleScreen}>
+      <div className="monitor">
+        <div className={`screen ${isScreenOn ? 'screen-on' : 'screen-off'}`}>
+          {isScreenOn && (
+            <div className="screen-content">
+              {showMeeting ? (
+                <div className="screen-meeting">
+                  <div className="meeting-header">
+                    <div className="meeting-title">Team Standup</div>
+                    <div className="meeting-close" onClick={() => setShowMeeting(false)}>×</div>
+                  </div>
+                  <div className="meeting-grid">
+                    {meetingParticipants.map(participant => (
+                      <div 
+                        key={participant.id} 
+                        className={`participant ${participant.status}`}
+                      >
+                        <div className="participant-avatar">{participant.avatar}</div>
+                        <div className="participant-name">{participant.name}</div>
+                        {participant.status === 'muted' && <div className="status-icon">🔇</div>}
+                        {participant.status === 'camera-off' && <div className="status-icon">🎭</div>}
+                        {participant.status === 'speaking' && (
+                          <div className="speaking-indicator">
+                            <div className="speaking-bar"></div>
+                            <div className="speaking-bar"></div>
+                            <div className="speaking-bar"></div>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="meeting-controls-small">
+                    <div className="control-btn-small mic">🎤</div>
+                    <div className="control-btn-small video">📹</div>
+                    <div className="control-btn-small end-call" onClick={() => setShowMeeting(false)}>📴</div>
+                  </div>
+                </div>
+              ) : showCall ? (
+                <div className="screen-call">
+                  <div className="call-header">
+                    <div className="call-title">Calling John...</div>
+                    <div className="call-close" onClick={() => setShowCall(false)}>×</div>
+                  </div>
+                  <div className="call-content">
+                    <div className="caller-avatar">👨‍💼</div>
+                    <div className="caller-name">John</div>
+                    <div className="call-status">Ringing...</div>
+                  </div>
+                  <div className="call-controls">
+                    <div className="control-btn mic">🎤</div>
+                    <div className="control-btn video">📹</div>
+                    <div className="control-btn end-call" onClick={() => setShowCall(false)}>📴</div>
+                  </div>
+                </div>
+              ) : showCssChallenge ? (
+                <div className="screen-challenge">
+                  <div className="challenge-header">
+                    <div className="challenge-logo">DEV</div>
+                    <div className="challenge-title">Frontend Challenge: Office Edition</div>
+                    <div className="challenge-close" onClick={() => setShowCssChallenge(false)}>×</div>
+                  </div>
+                  <div className="challenge-content">
+                    <div className="challenge-banner">
+                      <div className="challenge-banner-bg">
+                        <div className="plants">
+                          <div className="plant plant-1"></div>
+                          <div className="plant plant-2"></div>
+                          <div className="plant plant-3"></div>
+                          <div className="arrow arrow-1"></div>
+                          <div className="arrow arrow-2"></div>
+                          <div className="arrow arrow-3"></div>
+                        </div>
+                        <div className="challenge-info">
+                          <div className="challenge-box">
+                            <h2 className="challenge-heading">Frontend Challenge: Office Edition</h2>
+                            <div className="challenge-prize">USD 3,000 IN PRIZES!</div>
+                            <div className="challenge-date">JULY 2 - 27</div>
+                            <div className="challenge-sponsor">
+                              <div className="sponsor-logo">axero</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="challenge-section">
+                      <h2>Challenge ends soon!</h2>
+                      <div className="countdown">
+                        <div className="countdown-item">
+                          <div className="countdown-number">01</div>
+                          <div className="countdown-label">DAYS</div>
+                        </div>
+                        <div className="countdown-separator">:</div>
+                        <div className="countdown-item">
+                          <div className="countdown-number">22</div>
+                          <div className="countdown-label">HOURS</div>
+                        </div>
+                        <div className="countdown-separator">:</div>
+                        <div className="countdown-item">
+                          <div className="countdown-number">16</div>
+                          <div className="countdown-label">MINUTES</div>
+                        </div>
+                        <div className="countdown-separator">:</div>
+                        <div className="countdown-item">
+                          <div className="countdown-number">20</div>
+                          <div className="countdown-label">SECONDS</div>
+                        </div>
+                      </div>
+                      <div className="challenge-cta">
+                        <button className="challenge-button">See prompts</button>
+                      </div>
+                    </div>
+                    
+                    <div className="challenge-section main-content">
+                      <h1>Frontend Challenge: Office Edition</h1>
+                      <div className="action-buttons">
+                        <button className="sign-up-button">Sign up</button>
+                        <a className="view-entries">View Entries →</a>
+                      </div>
+                      <p className="challenge-tagline">Flex your HTML, CSS, and JavaScript skills!</p>
+                      
+                      <div className="challenge-card">
+                        <h3>CSS Art: Office Culture</h3>
+                        <p>Draw what comes to mind for you when it comes to office culture. Whether that's classic water cooler conversations, your coworker's mechanical keyboard, ice breaker activities, or The Office™ - we want to see your interpretation of office life through CSS art.</p>
+                        <a className="template-link">Submission Template →</a>
+                        
+                        <div className="judging-criteria">
+                          <h4>Judging Criteria:</h4>
+                          <ul>
+                            <li>• Creativity</li>
+                            <li>• Effective Use of CSS</li>
+                            <li>• Aesthetic Outcome</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <div className="screen-image"></div>
+                  <div className="taskbar"></div>
+                </>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="monitor-stand"></div>
+      <div className="monitor-base"></div>
+      <div className="keyboard">
+        <div className="keyboard-keys"></div>
+      </div>
+      <div className="mouse"></div>
+    </div>
+    
+    {/* Desk Plant */}
+    <div className="plant-container" onClick={waterPlant}>
+      <div className="plant-pot">
+        <div className="plant-soil"></div>
+      </div>
+      <div className={`plant growth-${plantGrowth}`}>
+        {plantGrowth > 0 && (
+          <>
+            <div className="plant-stem"></div>
+            <div className="plant-leaf left"></div>
+            <div className="plant-leaf right"></div>
+          </>
+        )}
+        {plantGrowth > 1 && (
+          <>
+            <div className="plant-stem-2"></div>
+            <div className="plant-leaf left-2"></div>
+            <div className="plant-leaf right-2"></div>
+          </>
+        )}
+        {plantGrowth > 2 && (
+          <div className="plant-flower"></div>
+        )}
+      </div>
+      {plantGrowth < 3 && (
+        <div className="water-me-sign">Water me!</div>
+      )}
+    </div>
+  </div>
+  
+  {/* Coffee Break Overlay */}
+  <div className={`coffee-break-overlay ${coffeeBreak ? 'coffee-break-active' : ''}`}>
+    <div className="coffee-break-title">Taking a Coffee Break</div>
+    <div className="coffee-break-timer">
+      {Math.floor(breakTimeLeft / 60)}:{(breakTimeLeft % 60).toString().padStart(2, '0')}
+    </div>
+    <div className="coffee-cup-large">
+      <div className="coffee-cup-body">
+        <div 
+          className="coffee-liquid" 
+          style={{ height: `${coffeeLevel}%` }}
+        ></div>
+      </div>
+      <div className="coffee-cup-handle"></div>
+      <div className="coffee-cup-steam coffee-steam-1"></div>
+      <div className="coffee-cup-steam coffee-steam-2"></div>
+      <div className="coffee-cup-steam coffee-steam-3"></div>
+    </div>
+    <button className="end-break-button" onClick={endCoffeeBreak}>
+      End Break Early
+    </button>
+  </div>
+
+  {/* Notifications */}
+  <div className="notifications-container">
+    {notifications.map(notification => (
+      <div 
+        key={notification.id} 
+        className={`notification ${notification.type}`}
+        onClick={() => removeNotification(notification.id)}
+      >
+        <div className="notification-icon">
+          {notification.type === 'email' && '✉️'}
+          {notification.type === 'calendar' && '📅'}
+          {notification.type === 'reminder' && '⏰'}
+          {notification.type === 'comment' && '💬'}
+          {notification.type === 'system' && '🔄'}
+          {notification.type === 'deadline' && '⚠️'}
+        </div>
+        <div className="notification-content">
+          <div className="notification-title">
+            {notification.type === 'email' && 'New Email'}
+            {notification.type === 'calendar' && 'Calendar'}
+            {notification.type === 'reminder' && 'Reminder'}
+            {notification.type === 'comment' && 'Comment'}
+            {notification.type === 'system' && 'System'}
+            {notification.type === 'deadline' && 'Deadline Alert'}
+          </div>
+          <div className="notification-message">{notification.message}</div>
+        </div>
+        <div className="notification-close">×</div>
+      </div>
+    ))}
+  </div>
+
+  {/* Test notification button - remove in production */}
+  <button 
+    style={{ 
+      position: 'absolute', 
+      bottom: '10px', 
+      right: '10px', 
+      zIndex: 1000,
+      padding: '5px 10px',
+      background: '#3498db',
+      color: 'white',
+      border: 'none',
+      borderRadius: '4px',
+      cursor: 'pointer'
+    }}
+    onClick={() => addNotification("This is a test notification", "email")}
+  >
+    Test Notification
+  </button>
+
+  {/* Customize button */}
+  <button className="customize-button" onClick={toggleCustomizePanel}>
+    🎨 Customize Desk
+  </button>
+
+  {/* Customize panel - Updated to include dustbin */}
+  <div 
+    className={`customize-panel ${showCustomizePanel ? 'active' : ''}`}
+    ref={customizePanelRef}
+  >
+    <div className="panel-close" onClick={toggleCustomizePanel}>×</div>
+    <div className="customize-section">
+      <div className="customize-section-title">Add Items</div>
+      <div className="item-options">
+        <div className="item-option" onClick={() => addPersonalItem('photo')}>
+          🖼️
+        </div>
+        <div className="item-option" onClick={() => addPersonalItem('phone')}>
+          📱
+        </div>
+        <div className="item-option" onClick={() => addPersonalItem('water')}>
+          🍶
+        </div>
+        <div className="item-option" onClick={() => addPersonalItem('dustbin')}>
+          🗑️
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Weather Widget */}
+  <div className="weather-widget">
+    <div className="weather-header">
+      <div className="weather-location">{weather.location}</div>
+      <div className="weather-refresh" onClick={changeWeather}>↻</div>
+    </div>
+    <div className="weather-content">
+      <div className="weather-info">
+        <div className="weather-temperature">{weather.temperature}°F</div>
+        <div className="weather-condition">
+          {weather.condition.charAt(0).toUpperCase() + weather.condition.slice(1)}
+        </div>
+      </div>
+      <div className="weather-icon">
+        {weather.condition === 'sunny' && '☀️'}
+        {weather.condition === 'cloudy' && '☁️'}
+        {weather.condition === 'rainy' && '🌧️'}
+        {weather.condition === 'snowy' && '❄️'}
+      </div>
+    </div>
+  </div>
+
+  {/* Personal items on desk - Updated to include dustbin rendering */}
+  {personalItems.map(item => (
+    <div
+      key={item.id}
+      className="personal-item"
+      style={{
+        left: item.position.x,
+        top: item.position.y,
+        transform: `rotate(${item.rotation}deg)`,
+        zIndex: item.zIndex
+      }}
+      onMouseDown={(e) => {
+        e.stopPropagation();
+        startDragging(item.id);
+      }}
+    >
+      <div className="item-delete" onClick={() => removePersonalItem(item.id)}>×</div>
+      
+      {item.type === 'photo' && (
+        <div className="photo-frame">
+          <div className="photo-inner"></div>
+          <div className="photo-stand"></div>
+        </div>
+      )}
+      
+      {item.type === 'phone' && (
+        <div className="desk-phone">
+          <div className="phone-screen"></div>
+          <div className="phone-button"></div>
+        </div>
+      )}
+      
+      {item.type === 'water' && (
+        <div className="water-bottle">
+          <div className="bottle-cap"></div>
+          <div className="bottle-body"></div>
+          <div className="bottle-water"></div>
+        </div>
+      )}
+      
+      {item.type === 'dustbin' && (
+        <div className="desk-dustbin">
+          <div className="dustbin-body"></div>
+          <div className="dustbin-lid"></div>
+          <div className="dustbin-contents"></div>
+        </div>
+      )}
+    </div>
+  ))}
+</div>
+);
 };
 
 export default OfficeScene;
