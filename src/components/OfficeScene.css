@@ -257,8 +257,8 @@ animation-duration: 1s;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Leave space for taskbar */
-  background-image: url('../../public/image.png'); /* Path relative to public folder */
+  height: 100%;
+  background-image: url('../../public/image.png'); 
   background-size: cover;
   background-position: center;
   border-radius: 2px 2px 0 0;
@@ -516,8 +516,7 @@ animation-duration: 1s;
   transform: scale(1.05);
 }
 
-/* Updated Wall Clock CSS */
-/* Updated Wall Clock CSS */
+
 .wall-clock {
   position: absolute;
   top: 60px;
@@ -535,15 +534,15 @@ animation-duration: 1s;
 /* Sticky Notes Board */
 .sticky-board {
   position: absolute;
-  top: 100px; /* Changed from -120px to position higher */
+  top: 100px; 
   left: 400px;
-  width: 150px; /* Further reduced from 140px */
-  height: 250px; /* Further reduced from 150px */
+  width: 150px; 
+  height: 250px;
   background-color: #cac588;
-  border: 3px solid #d3ce8e; /* Reduced from 4px */
-  border-radius: 4px; /* Reduced from 5px */
+  border: 3px solid #d3ce8e; 
+  border-radius: 4px; 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 6px; /* Reduced from 8px */
+  padding: 6px; 
   z-index: 10;
   overflow: hidden;
 }
@@ -551,19 +550,19 @@ animation-duration: 1s;
 .board-header {
   text-align: center;
   font-weight: bold;
-  font-size: 10px; /* Reduced from 12px */
-  margin-bottom: 6px; /* Reduced from 8px */
-  padding-bottom: 3px; /* Reduced from 4px */
+  font-size: 10px; 
+  margin-bottom: 6px; 
+  padding-bottom: 3px; 
   border-bottom: 1px dashed #ccc;
 }
 
 .sticky-note {
   position: relative;
-  width: 50px; /* Reduced from 60px */
-  height: 50px; /* Reduced from 60px */
-  margin: 3px; /* Reduced from 4px */
-  padding: 6px; /* Reduced from 8px */
-  font-size: 8px; /* Reduced from 10px */
+  width: 50px; 
+  height: 50px; 
+  margin: 3px; 
+  padding: 6px; 
+  font-size: 8px; 
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -573,18 +572,18 @@ animation-duration: 1s;
 }
 
 .sticky-note:nth-child(2) {
-  left: 6px; /* Adjusted from 8px */
-  top: 3px; /* Reduced from 4px */
+  left: 6px; 
+  top: 3px;
 }
 
 .sticky-note:nth-child(3) {
-  left: -3px; /* Adjusted from -4px */
-  top: 10px; /* Reduced from 12px */
+  left: -3px; 
+  top: 10px;
 }
 
 .sticky-note:nth-child(4) {
-  left: 3px; /* Reduced from 4px */
-  top: -6px; /* Reduced from -8px */
+  left: 3px; 
+  top: -6px; 
 }
 
 .sticky-note.active {
@@ -602,8 +601,8 @@ animation-duration: 1s;
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 12px; /* Reduced from 16px */
-  height: 12px; /* Reduced from 16px */
+  width: 12px; 
+  height: 12px; 
   background: linear-gradient(135deg, transparent 50%, rgba(0, 0, 0, 0.1) 50%);
 }
 
@@ -888,7 +887,7 @@ animation-duration: 1s;
   opacity: 1;
 }
 
-/* Flight paths - Completely straight horizontal paths */
+/* Flight paths  */
 .path-0 {
   animation: flight-path-0 3s forwards;
 }
@@ -2465,7 +2464,7 @@ animation-duration: 1s;
   overflow-y: auto;
 }
 
-/* Banner with plants and arrows - simplified */
+
 .challenge-banner {
   width: 100%;
   height: 120px;
@@ -2480,7 +2479,7 @@ animation-duration: 1s;
   position: relative;
 }
 
-/* Challenge box - cleaner design */
+
 .challenge-info {
   position: absolute;
   top: 50%;
@@ -2529,7 +2528,7 @@ animation-duration: 1s;
   font-weight: 500;
 }
 
-/* Simplified content */
+
 .challenge-section {
   padding: 10px;
   border-bottom: 1px solid #e5e7eb;
@@ -2545,7 +2544,7 @@ animation-duration: 1s;
   margin: 0 0 6px 0;
 }
 
-/* Simplified countdown */
+
 .countdown {
   display: flex;
   justify-content: center;
@@ -2592,7 +2591,7 @@ animation-duration: 1s;
   font-size: 9px;
 }
 
-/* Main content - simplified */
+
 .main-content {
   text-align: left;
   padding: 8px;
@@ -2680,7 +2679,7 @@ animation-duration: 1s;
   font-size: 9px;
 }
 
-/* Plants and arrows - simplified */
+
 .plants {
   position: absolute;
   bottom: 0;
