@@ -8,7 +8,8 @@ This project creates a detailed, interactive virtual office environment showcasi
 
 ## 🌟 Live Demo
 
-[Watch the Demo Video on YouTube](https://youtube.com/your-demo-link)
+[![Watch the video](https://img.youtube.com/vi/1QRVqoeHdRk/0.jpg)](https://www.youtube.com/watch?v=1QRVqoeHdRk)
+
 
 ## ✨ Features
 
